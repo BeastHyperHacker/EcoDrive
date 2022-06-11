@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">EcoDrive</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Calculate Emissions</a></li>
+        <li><a href="learnMore.html">Learn More</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <meta charset="utf-8" />
+  <title>EcoDrive</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+  <link rel="stylesheet" href="leaflet-routing-machine.css" />
+  <style>
+    .map {
+      position: absolute;
+      width: 57%;
+      height: 57%;
+      justify-content: center;
+    }
+  </style>
+</head>
+
+<body style="background-color:#b3ffb3;">
+  <div id="map" class="map"></div>
+  <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+  <script src="leaflet-routing-machine.js"></script>
+  <script>
+    var map = L.map('map');
+
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    L.Routing.control({
+      waypoints: [
+        L.latLng(40.4175, -74.7064),
+        L.latLng(28.3772, -81.5707)
+      ]
+    }).addTo(map);
+
+
+
+    var map = L.map('map');
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    L.Routing.control({
+      waypoints: [
+        L.latLng(57.74, 11.94),
+        L.latLng(57.6792, 11.949)
+      ],
+      routeWhileDragging: true
+    }).addTo(map);
+  </script>
+
+  <form action="/url" method="GET">
+    <p>Distance:</p>
+    <input type="text"> 
+  </form>
+  
+</body>
+<iframe position="relative" " style="margin-top: -60px;" width="600" height="1099" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" align="right" top:-200px  src="https://calculator.carbonfootprint.com/calculator.aspx?c=car"></iframe>
+</html>
